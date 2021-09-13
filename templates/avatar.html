@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avatar</title>
+    <link rel="stylesheet" href="..\static\login.css">
+</head>
+<body>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul style="color: red;">
+                {% for message in messages %}
+                    <li>{{message}}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    <h1>Update avatar!</h1>
+
+    <img src="/uploads/{{user_avatar}}" alt="User's avatar" id="avatar">
+    
+    <form action="/upload" method='POST' enctype="multipart/form-data">
+        <input type="file" name="avatar-image" id="avatar-input" accept="image/*">
+        <button type="submit">Update</button>   
+        <!-- <input type="submit" value="Update"> -->
+        <p>Go back to <a href="/">home</a></p>
+    </form> 
+
+    <script>
+        const image = document.querySelector("#avatar");
+        const input = document.querySelector("#avatar-input");
+
+        input.addEventListener("change", (e) => {
+            const selected_src = URL.createObjectURL(e.target.files[0]);
+            image.src = selected_src;
+        })
+    </script>
+</body>
+</html>

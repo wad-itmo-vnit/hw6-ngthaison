@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="../static/gellary.css">
+    <title>THAISON FT</title>
+</head>
+
+<body>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul style="color: red;">
+                {% for message in messages %}
+                    <li>{{message}}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    
+    <div id="plain-gallery">
+        <form action="/logout" method="post">
+            <input type="submit" value="Log out"></input>   
+        </form>
+        <br>
+        <a href="/changepwd">Change password</a>
+        <br>
+        <br>
+        <a href="/upload">Upload avatar</a>
+        <header>
+            <h1>My Gallery</h1>
+            <p><i>
+                Enjoy 
+                <strong>my gallery</strong>, enjoy 
+                <strong>your life!</strong></i>
+            </p>
+        </header>
+        <hr>
+        <br>
+        <div id="modal-plain" class="modal">
+            <span id="close-button" class="close">&times;</span>
+            <img src="" class="modal-content" id="modal-img">
+        </div>
+
+        <div id="gallery">
+            <div class="imgcontainer">               
+                <img id="img-1" src="../static/pics/1.jpg" alt="pic-1">               
+            </div>
+            <div class="imgcontainer">                
+                <img id="img-2" src="../static/pics/2.jpg" alt="pic-2">              
+            </div>
+            <div class="imgcontainer">                
+                <img id="img-3" src="../static/pics/3.jpg" alt="pic-3">               
+            </div>
+            <div class="imgcontainer">               
+                <img id="img-4" src="../static/pics/4.jpg" alt="pic-4">              
+            </div>
+            <div class="imgcontainer">               
+                <img id="img-5" src="../static/pics/5.jpg" alt="pic-5">               
+            </div>
+            <div class="imgcontainer">               
+                <img id="img-6" src="../static/pics/6.jpg" alt="pic-6">
+            </div>
+            <div class="imgcontainer">               
+                <img id="img-7" src="../static/pics/7.jpg" alt="pic-7">                
+            </div>
+            <div class="imgcontainer">
+                <img id="img-8" src="../static/pics/8.jpg" alt="pic-8">
+            </div>
+        </div>
+
+        <footer>
+            <p>@No copyright</p>
+        </footer>
+    </div>
+    <script src="../static/script.js"></script>
+</body>
+</html>

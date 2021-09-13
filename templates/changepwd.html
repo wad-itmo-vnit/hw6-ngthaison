@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="..\static\login.css">
+</head>
+<body>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul style="color: red;">
+                {% for message in messages %}
+                    <li>{{message}}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    <h1>Change password</h1>
+    
+    <form action="/changepwd" method='post' >
+        <label for="password">Old password</label>
+        <input type="password" placeholder="Enter old password" name="old_pwd">
+        <label for="password">New password</label>
+        <input type="password" placeholder="Enter new password" name="new_pwd">
+        <label for="password">Confirm new password</label>
+        <input type="password" placeholder="Enter new password again" name="new_pwd_confirm">
+        <button type="submit">Update</button>  
+        <p>Go back to <a href="/">home</a></p>
+    </form> 
+</body>
+</html>
